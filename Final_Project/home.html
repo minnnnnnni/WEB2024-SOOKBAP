@@ -1,10 +1,142 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="en">
 <head>
-	<meta charset="utf-8">
-	<title>홈 화면</title> 
+    <title> 홈 화면</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+	<style>
+		body {
+		  background-color: rgb(0,48,135);
+		  color: #ffffff;
+		  height: 100vh;
+		  display:flex;
+		  flex-direction: column;
+		}
+		.navbar {
+		  background-color: #fff;
+		}
+		.navbar-brand, .nav-link {
+		  color: rgb(99,101,105);
+		}
+		.container-fluid .btn-primary ms-2 {     /*회원가입 버튼 색깔 수정하기.. */
+			background-color:#fff;
+		}
+		.title-section {
+		  text-align: left;
+		  padding: 100px 20px;
+		  flex-direction: column;
+		  justify-content: center;
+		}
+		.title-section h1 {
+		  font-size: 5rem;
+		  margin-bottom: 20px;
+		  font-weight: bold;
+		}
+		.title-section p {
+		  font-size: 1.25rem;
+		  margin-bottom: 30px;
+		  color:rgb(151,153,155);
+		}
+		.title-section .btn-primary {
+		  background-color: #6f42c1;
+		  border-color: #6f42c1;
+		}
+		#nonmenu {
+			padding-left: 9%;
+			padding-top: 5%;
+		}
+		.input-group {
+			padding-right: 70%;
+		}
+		#question {
+			font-size: 15px;
+			color:rgb(233, 234, 235);
+		}
+
+	  </style>
+
+
+
+
+	
 </head>
 <body>
-홈화면
+
+  <!-- 메뉴 바 -->
+  <nav class="navbar navbar-expand-lg navbar-dark">
+    <div class="container-fluid">
+		<!--숙밥 로고 넣을 곳. -->
+      <a class="navbar-brand" href="/WEB2024_for posting/Final_Project/home.html">숙밥</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item dropdown">
+			<a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+				Category
+			</a>
+			<ul class="dropdown-menu">
+				<li><a class="dropdown-item" href="menu_meals.html">식사류</a></li>
+				<li><a class="dropdown-item" href="menu_desserts.html">디저트류</a></li>
+			</ul>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="bestpick.html">제작자의 BestPick</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="mypage.html">MyPage</a>
+          </li>
+        </ul>
+        <a class="btn btn-light" href="login.html">로그인</a>
+        <a class="btn btn-primary ms-2" href="#">회원가입</a>
+      </div>
+    </div>
+  </nav>
+
+  <!--메뉴바 아래 부분을 nonmenu라는 div태그로 구성하여 왼쪽에서부터 좀 떼기 -->
+  <div id="nonmenu">
+  <!-- 제목 -->
+  <div class="title-section">
+    <h1>숙대 밥 먹으러 오니</h1>
+    <p>과제하다 힘들 때면 찾아오세요. </p>
+	<div class="input-group"> <!--폼과 버튼 한줄로 적기-->
+	<span id="question">자신만의 숙대 맛집이 있나요?</span>
+    <input type="email" class="form-control w-50 mx-auto mb-3" id="userInput" placeholder="'네' 또는 '아니오' 입력">
+	<button id="submitBtn" class="btn btn-light mb-3">제출</button>
+	<a href="https://open.kakao.com/o/sLvQhPvg" id = "recommend" class="btn btn-outline-light">제작자에게 맛집 추천해주기</a></button>	
+	</div>
+	<div id="result-message"></div> <!--입력 결과에 따른 메시지 표현 공간. 근데 나중에도 안 되면 걍 빼고 alert로 띄우기-->
+  </div>
+
+  <!--지도 api 구현 예정-->
+  <div class="map-api">
+	
+  </div>
+
+</div>
+
+<script>
+	document.getElementById("submitBtn").addEventListener('click', function() {
+		let inputValue = document.getElementById('userInput').value.trim();
+		let message = document.getElementById('result-message');
+		if (inputValue == '네') {
+			alert('환영해요! 이 페이지에서 함께 서로의 맛집을 공유해 봐요!');
+		} else if (inputValue == '아니오') {
+			alert('이런! 이 페이지에서 송이의 숙대 맛집을 찾아갈 수 있으면 좋겠어요.');
+		} else {
+			alert("'네' 또는 '아니오' 입력");
+		}		
+	});
+</script>
+
+
+
+
+
+
+홈화면 제작중. 지도 api도 넣어야함
 </body>
 </html>
