@@ -54,7 +54,10 @@
 			font-size: 15px;
 			color:rgb(233, 234, 235);
 		}
-
+		#recommend {
+			border-color: rgb(255,181,0);
+			font-weight: bold;
+		}
 	  </style>
 
 
@@ -102,10 +105,12 @@
   <div class="title-section">
     <h1>숙대 밥 먹으러 오니</h1>
     <p>과제하다 힘들 때면 찾아오세요. </p>
-	<div class="input-group"> <!--폼과 버튼 한줄로 적기-->
+	<div class="button-group"> <!--버튼 그룹 한줄로 적기-->
+	<div class="input-group"> <!--폼과 버튼 왼쪽에 밀기-->
 	<span id="question">자신만의 숙대 맛집이 있나요?</span>
     <input type="email" class="form-control w-50 mx-auto mb-3" id="userInput" placeholder="'네' 또는 '아니오' 입력">
 	<button id="submitBtn" class="btn btn-light mb-3">제출</button>
+	</div>
 	<a href="https://open.kakao.com/o/sLvQhPvg" id = "recommend" class="btn btn-outline-light">제작자에게 맛집 추천해주기</a></button>	
 	</div>
 	<div id="result-message"></div> <!--입력 결과에 따른 메시지 표현 공간. 근데 나중에도 안 되면 걍 빼고 alert로 띄우기-->
