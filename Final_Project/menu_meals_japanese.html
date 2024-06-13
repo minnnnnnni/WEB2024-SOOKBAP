@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>음식 소개 화면(식사류)</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <style>
+        body {
+        font-family: 'Arial', sans-serif;
+        }
+        .navbar {
+            background-color: #343a40;
+        }
+        .navbar-brand {
+            font-weight: bold;
+        }
+        .card-img-top {
+            height: 200px;
+            object-fit: cover;
+        }
+        footer {
+            background-color: #f8f9fa;
+            padding: 20px 0;
+        }
+        .list-group-item {
+            display: flex;
+            align-items: center;
+        }
+        .list-group-item img {
+            margin-right: 10px;
+            width: 20px;
+            height: 20px;
+        }
+        .card-text {
+            margin:10px;
+        }
+        .btn-primary {  /*부트스트랩 기본버튼 색깔 바꾸기*/
+            background-color:  rgb(0,48,135)  ;
+        }
+        .list-group-item.selected-item {
+            background-color: rgb(0,114,206); /*현재 선택된 메뉴 색깔 돋보이게 하기*/
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+            <!--숙밥 로고 넣을 곳. -->
+          <a class="navbar-brand" href="home.html">숙밥</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    Category
+                </a>
+                <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="menu_meals.html">식사류</a></li>
+                    <li><a class="dropdown-item" href="menu_desserts.html">디저트류</a></li>
+                </ul>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="bestpick.html">제작자의 BestPick</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="mypage.html">MyPage</a>
+              </li>
+            </ul>
+            <a class="btn btn-light" href="login.html">로그인</a>
+            <a class="btn btn-primary ms-2" href="#">회원가입</a>
+          </div>
+        </div>
+      </nav>
+
+      <div class="container mt-4">
+        <h3>식사류</h3><br>
+        <div class="row">
+            <div class="col-md-3">
+                <div class="list-group">
+                    <a href="#" class="list-group-item list-group-item-action">
+                        한식
+                    </a>
+                    <a href="#" class="list-group-item list-group-item-action">
+                        양식
+                    </a>
+                    <a href="#" class="list-group-item list-group-item-action">
+                        중식
+                    </a>
+                    <a href="#" class="list-group-item list-group-item-action selected-item">
+                        일식
+                    </a>
+                    <a href="#" class="list-group-item list-group-item-action">
+                        베트남식
+                    </a>
+                </div>
+            </div>
+            <div class="col-md-9">
+                <div class="card mb-4">
+                    <img src="image.jpg" class="card-img-top" alt="음식 이미지">
+                    <div class="card-body">
+                        <h5 class="card-title">메뉴명_1</h5>
+                        <p class="card-text">가게명</p>
+                        <p class="card-text">가격</p>
+                        <p class="card-text">★★★★★ (5.0)</p>
+                        <div class="tags">
+                            <span># 제작자_강추</span>
+                            <span># 아주맛있어요</span>
+                        </div>
+                        <br>   
+                        <a href="menu_details_1.html" class="btn btn-primary">자세히 보기</a>
+                    </div>
+                </div>
+                <div class="card mb-4">
+                    <img src="image.jpg" class="card-img-top" alt="음식 이미지">
+                    <div class="card-body">
+                        <h5 class="card-title">메뉴명_2</h5>
+                        <p class="card-text">가게명</p>
+                        <p class="card-text">가격</p>
+                        <p class="card-text">★★★★★ (5.0)</p>
+                        <div class="tags">
+                            <span># 제작자_강추</span>
+                            <span># 아주맛있어요</span>
+                        </div>
+                        <br>   
+                        <a href="menu_details_1.html" class="btn btn-primary">자세히 보기</a>
+                    </div>
+                </div>
+                <!-- Add more cards as needed -->
+            </div>
+        </div>
+    </div>
+
+    <footer class="text-center mt-4">
+        <p>© 2024 숙밥. All rights reserved.</p>
+        <p>
+            <a href="#">Instagram</a> | 
+            <a href="#">Facebook</a> | 
+            <a href="#">Twitter</a>
+        </p>
+    </footer>
+
+
+</body>
+</html>
+
