@@ -83,7 +83,7 @@
 			</a>
 			<ul class="dropdown-menu">
 				<li><a class="dropdown-item" href="menu_meals_korean.html">식사류</a></li> <!--디폴트는 한식임.-->
-				<li><a class="dropdown-item" href="menu_desserts.html">디저트류</a></li>
+				<li><a class="dropdown-item" href="menu_desserts_cookies.html">디저트류</a></li> <!-- 디폴트는 쿠키류-->
 			</ul>
           </li>
           <li class="nav-item">
@@ -114,6 +114,7 @@
 	<a href="https://open.kakao.com/o/sLvQhPvg" id = "recommend" class="btn btn-outline-light">제작자에게 맛집 추천해주기</a></button>	
 	</div>
 	<div id="result-message"></div> <!--입력 결과에 따른 메시지 표현 공간. 근데 나중에도 안 되면 걍 빼고 alert로 띄우기-->
+	
   </div>
 
   <!--지도 api 구현 예정-->
@@ -121,9 +122,12 @@
 	
   </div>
 
+  <!-- 팝업 나올 곳-->
+  <div id="popup-container"></div>
 </div>
 
 <script>
+	// 네 아니오 입력 시 반응
 	document.getElementById("submitBtn").addEventListener('click', function() {
 		let inputValue = document.getElementById('userInput').value.trim();
 		let message = document.getElementById('result-message');
@@ -135,6 +139,32 @@
 			alert("'네' 또는 '아니오' 입력");
 		}		
 	});
+
+	// 팝업 뜨는 거
+	function loadPopup() {
+            const xhr = new XMLHttpRequest();
+            xhr.open('GET', 'intro_popup.html', true);
+            xhr.onreadystatechange = function() {
+                if (xhr.readyState === 4 && xhr.status === 200) {
+                    document.getElementById('popup-container').innerHTML = xhr.responseText;
+                    executePopupScripts();
+                }
+            };
+            xhr.send();
+        }
+
+        function executePopupScripts() {
+            const scripts = document.querySelectorAll('#popup-container script');
+            scripts.forEach(oldScript => {
+                const newScript = document.createElement('script');
+                newScript.innerHTML = oldScript.innerHTML;
+                document.body.appendChild(newScript);
+            });
+        }
+
+        window.onload = function() {
+            loadPopup();
+        }
 </script>
 
 

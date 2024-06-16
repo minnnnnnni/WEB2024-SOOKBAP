@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title> 음식 세부소개 화면 - 디폴트</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+	<style>
+		body {
+		  background-color: rgb(0,48,135);
+		  color: #ffffff;
+		  height: 100vh;
+		  display:flex;
+		  flex-direction: column;
+		}
+		.navbar {
+		  background-color: #fff;
+		}
+		.navbar-brand, .nav-link {
+		  color: rgb(99,101,105);
+		}
+		.container-fluid .btn-primary ms-2 {     /*회원가입 버튼 색깔 수정하기.. */
+			background-color:#fff;
+		}
+        .btn-primary {
+            background-color: #fff;
+            color: rgb(99,101,105);
+        }
+        .container {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 20px;
+        }
+        .card {
+            background-color: #f8f9fa;
+            color: #000;
+            border: none;
+            border-radius: 10px;
+            width: 95%;
+            height: 90%;
+            max-width: 1200px;
+            padding: 50px;
+        }
+        .card img {
+            border-radius: 10px 10px 0 0;
+        }
+        .card-body {
+            padding: 20px;
+        }
+        .details-container {
+            display: flex;
+            flex-direction: row;
+            gap: 20px;
+            margin-top: 20px;
+        }
+        .details-container .image-container {
+            flex: 1;
+        }
+        .details-container .text-container {
+            flex: 2;
+        }
+        h1, h3 { /* h1은 '메뉴이름', h3은 '가게이름' */
+            font-weight: bold;
+        }
+        #menu-name {
+            cursor: pointer;
+            position: relative;
+            padding-right: 20px;
+        }
+        #menu-name:after {
+            content: '\1f499'; /* 하트를 선택하지 않은 경우 기본 파란색 하트 */
+            color: rgb(255,125,1);
+            position: absolute;
+            right: 0;
+        }
+        #menu-name.fav:after {
+            content: '\2764'; /* 하트를 선택한 경우 빨간색 하트로 변함 */
+        }
+        .image-container img {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+            border-radius: 10px;
+            margin-top: 20px;
+        }
+        .text-container {
+            margin-top: 20px;
+            margin-left: 20px;
+        }
+        #star {
+            color: rgb(255,125,1);
+            font-weight: bold;
+        }
+        #explanation {
+            font-weight: bold;
+        }
+	  </style>
+</head>
+
+<body>
+
+<!-- 메뉴 바 -->
+  <nav class="navbar navbar-expand-lg navbar-dark">
+    <div class="container-fluid">
+		<!--숙밥 로고 넣을 곳. -->
+      <a class="navbar-brand" href="home.html">숙밥</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item dropdown">
+			<a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+				Category
+			</a>
+			<ul class="dropdown-menu">
+				<li><a class="dropdown-item" href="menu_meals_korean.html">식사류</a></li> <!--디폴트는 한식임.-->
+				<li><a class="dropdown-item" href="menu_desserts_cookies.html">디저트류</a></li>
+			</ul>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="bestpick.html">제작자의 BestPick</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="mypage.html">MyPage</a>
+          </li>
+        </ul>
+        <a class="btn btn-light" href="login.html">로그인</a>
+        <a class="btn btn-primary ms-2" href="#">회원가입</a>
+      </div>
+    </div>
+  </nav>
+
+    <!-- 음식 세부소개 -->
+    <div class="container">
+        <div class="card">
+            <h1 id="menu-name">디폴트 메뉴</h1>
+            <div class="details-container"> <!-- 카드 아래부분-->
+                <div class="image-container"> 
+                    <img src="sm_logo.png" alt="디폴트 상세메뉴">
+                </div>
+                <div class="text-container">
+                    <h3>디폴트 가게이름</h3><br>
+                    <p>1906원<br> <span id="star">★★★★★</span></p><br>
+                    <p><span id="explanation">설명 및 추천 이유 : </span>디폴트 가게에서 만든 대표작! <br>
+                        숙명에 왔다면 꼭 한 번씩은 먹어야 하는 디폴트 맛집입니다!<br>
+                        맛이 어떻고 주저리주저리<br>
+                        힘들 때 한 입씩 먹어 주면 피로가 싹 가십니다<br>
+                        5000원대로 가성비 한끼뚝딱!! 가격도 요즘 물가 대비 저렴하고 맛과 건강을 모두 챙길 수 있어요
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script>
+        // 좋아요 상태를 불러와 반영하기
+        document.addEventListener('DOMContentLoaded', function() {
+            var menuNameElement = document.getElementById('menu-name');
+            var favorites = JSON.parse(getCookie('favorites') || '[]');
+
+            if (favorites.includes(menuNameElement.innerText)) {
+                menuNameElement.classList.add('fav');
+            }
+
+            menuNameElement.addEventListener('click', function() {
+                var menuName = menuNameElement.innerText;
+                var index = favorites.indexOf(menuName);
+
+                if (index == -1) {
+                    favorites.push(menuName);
+                    menuNameElement.classList.add('fav');
+                } else {
+                    favorites.splice(index, 1);
+                    menuNameElement.classList.remove('fav');
+                }
+                setCookie('favorites', JSON.stringify(favorites), 365);
+            });
+        });
+
+        function setCookie(name, value, days) {
+            var expires = "";
+            if (days) {
+                var date = new Date();
+                date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+                expires = "; expires=" + date.toUTCString();
+            }
+            document.cookie = name + "=" + (value || "") + expires + "; path=/";
+        }
+
+        function getCookie(name) {
+            var nameEQ = name + "=";
+            var ca = document.cookie.split(';');
+            for (var i = 0; i < ca.length; i++) {
+                var c = ca[i];
+                while (c.charAt(0) == ' ') c = c.substring(1, c.length);
+                if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length, c.length);
+            }
+            return null;
+        }
+
+     </script>
+
+</body>
+</html>

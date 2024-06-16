@@ -8,8 +8,13 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <style>
         body {
-        font-family: 'Arial', sans-serif;
-        }
+		  background-color: rgb(0,48,135);
+		  color: #ffffff;
+		  height: 100vh;
+		  display:flex;
+		  flex-direction: column;
+          font-family: 'Arial', sans-serif;
+		}
         .navbar {
             background-color: #343a40;
         }
@@ -40,8 +45,45 @@
             background-color:  rgb(0,48,135)  ;
         }
         .list-group-item.selected-item {
-            background-color: rgb(0,114,206); /*현재 선택된 메뉴 색깔 돋보이게 하기*/
-            color: white;
+            background-color: rgb(255,181,0); /*현재 선택된 메뉴 색깔 돋보이게 하기*/
+            color: black ;
+            text-shadow: -0.1px 0 #000, 0 0.1px #000, 0.1px 0 #000, 0 -0.1px #000;
+            font-weight: bold;
+        }
+        h3 {
+            font-weight: bold;
+        } /* 식사류 */
+        #star {
+            color: rgb(255,125,1);
+            font-weight: bold;
+        }
+        h5 {
+            font-weight: bold;
+        } /* 음식이름 */
+        .tags {
+            font-style: italic;
+        }
+        .mb-4 {
+            background-color: #f8f8f8;
+            margin-right: 50px;
+        }
+        .list-group {
+            margin-right: 50px;
+        }
+        .card-body {
+            padding:15px;
+            padding-left: 30px;
+            padding-top: 15px;
+            position: relative;
+        }
+        .card-body .btn-primary {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+        }
+        .card-img-top {
+            height: 300px; /* 이미지의 높이 고정 */
+            object-fit: cover; /* 이미지 비율 유지하도록 함 */
         }
     </style>
 </head>
@@ -60,8 +102,8 @@
                     Category
                 </a>
                 <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="menu_meals.html">식사류</a></li>
-                    <li><a class="dropdown-item" href="menu_desserts.html">디저트류</a></li>
+                    <li><a class="dropdown-item" href="menu_meals_korean.html">식사류</a></li>
+                    <li><a class="dropdown-item" href="menu_desserts_cookies.html">디저트류</a></li>
                 </ul>
               </li>
               <li class="nav-item">
@@ -101,33 +143,29 @@
             </div>
             <div class="col-md-9">
                 <div class="card mb-4">
-                    <img src="image.jpg" class="card-img-top" alt="음식 이미지">
+                    <img src="sm_logo.png" class="card-img-top" alt="음식 이미지">
                     <div class="card-body">
                         <h5 class="card-title">메뉴명_1</h5>
-                        <p class="card-text">가게명</p>
-                        <p class="card-text">가격</p>
-                        <p class="card-text">★★★★★ (5.0)</p>
+                        <p>가게명 <br> 가격<br> <span id="star">★★★★★</span></p>
                         <div class="tags">
                             <span># 제작자_강추</span>
                             <span># 아주맛있어요</span>
                         </div>
                         <br>   
-                        <a href="menu_details_1.html" class="btn btn-primary">자세히 보기</a>
+                        <a href="menu_details_default.html" class="btn btn-primary">자세히 보기</a>
                     </div>
                 </div>
                 <div class="card mb-4">
-                    <img src="image.jpg" class="card-img-top" alt="음식 이미지">
+                    <img src="sm_logo.png" class="card-img-top" alt="음식 이미지">
                     <div class="card-body">
                         <h5 class="card-title">메뉴명_2</h5>
-                        <p class="card-text">가게명</p>
-                        <p class="card-text">가격</p>
-                        <p class="card-text">★★★★★ (5.0)</p>
+                        <p>가게명 <br> 가격<br> <span id="star">★★★★★</span></p>
                         <div class="tags">
                             <span># 제작자_강추</span>
                             <span># 아주맛있어요</span>
                         </div>
                         <br>   
-                        <a href="menu_details_1.html" class="btn btn-primary">자세히 보기</a>
+                        <a href="menu_details_default.html" class="btn btn-primary">자세히 보기</a>
                     </div>
                 </div>
                 <!-- Add more cards as needed -->
