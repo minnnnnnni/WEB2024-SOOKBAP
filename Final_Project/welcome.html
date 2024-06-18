@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>환영합니다</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+        .welcome-container {
+            display: inline-block;
+            text-align: center;
+            padding: 20px;
+            border: 1px solid #000;
+            border-radius: 10px;
+            background-color: #f0f0f0;
+        }
+        .button-container {
+            margin-top: 20px;
+        }
+        button {
+            padding: 5px 10px;
+        }
+    </style>
+    <script>
+        function getCookie(name) {
+            var nameEQ = name + "=";
+            var ca = document.cookie.split(';');
+            for(var i=0; i < ca.length; i++) {
+                var c = ca[i];
+                while (c.charAt(0) == ' ') c = c.substring(1, c.length);
+                if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length, c.length);
+            }
+            return null;
+        }
+
+        function incrementVisitCount() {
+            var nickname = getCookie("nickname");
+            if (!nickname) return;
+            var visitCountKey = "visitCount_" + nickname;
+            var visitCount = getCookie(visitCountKey);
+            if (visitCount) {
+                visitCount = parseInt(visitCount) + 1;
+            } else {
+                visitCount = 1;
+            }
+            setCookie(visitCountKey, visitCount, 1);
+            return visitCount;
+        }
+
+        window.onload = function() {
+            var nickname = getCookie("nickname");
+            var visitCount = incrementVisitCount();
+            if (nickname && visitCount) {
+                document.getElementById("welcome-message").innerText = nickname + "님 안녕하세요.\n" + visitCount + "번째 방문을 환영합니다!";
+            } else {
+                document.getElementById("welcome-message").innerText = "로그인이 필요합니다.";
+            }
+        }
+
+
+        function setCookie(name, value, days) {
+            var expires = "";
+            if (days) {
+                var date = new Date();
+                date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+                expires = "; expires=" + date.toUTCString();
+            }
+            document.cookie = name + "=" + (value || "") + expires + "; path=/";
+        }
+
+        window.onload = function() {
+            var nickname = getCookie("nickname");
+            var visitCount = incrementVisitCount();
+            if (nickname) {
+                document.getElementById("welcome-message").innerText = nickname + "님 안녕하세요.\n" + visitCount + "번째 방문을 환영합니다!";
+            } else {
+                document.getElementById("welcome-message").innerText = "로그인이 필요합니다.";
+            }
+        }
+    </script>
+</head>
+<body>
+    <div class="welcome-container">
+        <p id="welcome-message"></p>
+    </div>
+    <div class="button-container">
+        <button onclick="window.location.href='home.html'">홈 화면으로</button>
+        <button onclick="window.location.href='mypage.html'">마이페이지 화면으로</button>
+    </div>
+</body>
+</html>

@@ -1,1 +1,65 @@
-로그인 화면
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>로그인</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+        .login-container {
+            display: inline-block;
+            text-align: left;
+        }
+        .login-container div {
+            margin-bottom: 10px;
+        }
+        input[type="text"], input[type="password"] {
+            width: 200px;
+            padding: 5px;
+            margin-left: 10px;
+        }
+        button {
+            padding: 5px 10px;
+        }
+    </style>
+    <script>
+        function setCookie(name, value, days) {
+            var expires = "";
+            if (days) {
+                var date = new Date();
+                date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+                expires = "; expires=" + date.toUTCString();
+            }
+            document.cookie = name + "=" + (value || "") + expires + "; path=/";
+        }
+
+        function login() {
+            var nickname = document.getElementById("nickname").value;
+            var password = document.getElementById("password").value;
+            setCookie("nickname", nickname, 1);
+            setCookie("password", password, 1);
+            // Redirect to welcome.html
+            window.location.href = "welcome.html";
+        }
+    </script>
+</head>
+<body>
+    <h1>안녕하세요.<br>오늘도 함께 맛있는 여행을 떠나봅시다!</h1>
+    <div class="login-container">
+        <div>
+            <label for="nickname">닉네임:</label>
+            <input type="text" id="nickname" name="nickname">
+        </div>
+        <div>
+            <label for="password">비밀번호:</label>
+            <input type="password" id="password" name="password">
+        </div>
+        <div>
+            <button onclick="login()">로그인하기</button>
+        </div>
+    </div>
+</body>
+</html>

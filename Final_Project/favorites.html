@@ -1,49 +1,138 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Favorites</title>
+    <title> 내가 좋아한 메뉴 화면</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+	<style>
+		body {
+		  background-color: rgb(0,48,135);
+		  color: #ffffff;
+		  height: 100vh;
+		  display:flex;
+		  flex-direction: column;
+		}
+		.navbar {
+		  background-color: #fff;
+		}
+		.navbar-brand, .nav-link {
+		  color: rgb(99,101,105);
+		}
+		.ms-2 {     /*회원가입 버튼 색깔 */
+			background-color:rgb(0,48,135);
+		}
+        h1 {
+            font-weight: bold;
+            margin-bottom: 40px;
+        }
+        #favorites-list {
+            background-color: #f8f8f8;
+        }
+        #favorites-list li {
+            background-color: #f8f8f8;
+            color: black;
+            font-weight: bold;
+            font-size: 20px;
+            padding: 20px;
+            margin: 5px 0;
+        }
+        #btn-tomypage {
+            background-color: rgb(255,125,1);
+            color: white;
+            font-size: 18px;
+            padding:10px;
+            width: 225px;
+            margin-top: 50px;
+        }
+	  </style>
+
 </head>
+
+
 <body>
-    <div class="container">
-        <h1 class="mt-5">좋아한 목록</h1>
-        <ul id="favorites-list" class="list-group mt-3">
-            <!-- 좋아요 목록이 여기에 추가됩니다 -->
+
+<!-- 메뉴 바 -->
+  <nav class="navbar navbar-expand-lg navbar-dark">
+    <div class="container-fluid">
+		<!--숙밥 로고 넣을 곳. -->
+      <a class="navbar-brand" href="home.html">숙밥</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item dropdown">
+			<a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+				Category
+			</a>
+			<ul class="dropdown-menu">
+				<li><a class="dropdown-item" href="menu_meals_korean.html">식사류</a></li> <!--디폴트는 한식임.-->
+				<li><a class="dropdown-item" href="menu_desserts_cookies.html">디저트류</a></li>
+			</ul>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="bestpick.html">제작자의 BestPick</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="mypage.html">MyPage</a>
+          </li>
         </ul>
+        <a class="btn btn-light" href="login.html">로그인</a>
+        <a class="btn btn-primary ms-2" href="#">회원가입</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- 내가 좋아한 메뉴 담는 컨테이너-->
+    <div class="container">
+        <h1 class="mt-5">내가 좋아한 메뉴</h1>
+        <ul id="favorites-list" class="list-group mt-3">
+            <!-- 좋아요한 메뉴 리스트 추가될 부분 -->
+        </ul>
+        <a class="btn btn-primary ms-2" href="mypage.html" id="btn-tomypage">마이페이지로</a>
     </div>
 
+    
+    
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            var favorites = JSON.parse(getCookie('favorites') || '[]');
-            var favoritesList = document.getElementById('favorites-list');
-
+            displayFavorites();
+        });
+        
+        window.addEventListener('storage', function() {
+            displayFavorites();
+        });
+        
+        function displayFavorites() {
+            let favorites = JSON.parse(localStorage.getItem('favorites') || '[]');
+            let favoritesList = document.getElementById('favorites-list');
+            favoritesList.innerHTML = '';
+        
             if (favorites.length > 0) {
                 favorites.forEach(function(item) {
-                    var li = document.createElement('li');
+                    let li = document.createElement('li');
                     li.className = 'list-group-item';
-                    li.textContent = item;
+                    li.textContent = '\u2764 ' + item;
+                    li.id = `fav-${item}`; // 아이템 이름을 id로 설정
                     favoritesList.appendChild(li);
                 });
             } else {
-                var li = document.createElement('li');
+                let li = document.createElement('li');
                 li.className = 'list-group-item';
                 li.textContent = '좋아한 메뉴가 없습니다.';
                 favoritesList.appendChild(li);
             }
-        });
-
-        function getCookie(name) {
-            var nameEQ = name + "=";
-            var ca = document.cookie.split(';');
-            for (var i = 0; i < ca.length; i++) {
-                var c = ca[i];
-                while (c.charAt(0) == ' ') c = c.substring(1, c.length);
-                if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length, c.length);
-            }
-            return null;
         }
-    </script>
+        </script>
+        
+    
+    
+    
+    
+    
+    
+
 </body>
 </html>
