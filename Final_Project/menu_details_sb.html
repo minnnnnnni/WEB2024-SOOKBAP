@@ -172,7 +172,7 @@
             }
         
             menuNameElement.addEventListener('click', function() {
-                // favorites 배열을 다시 로드하여 항상 최신 상태를 반영
+                // 항상 최신상태 유지하도록 favorites 배열 업데이트하기
                 var favorites = JSON.parse(localStorage.getItem('favorites') || '[]');
                 var index = favorites.indexOf(menuName);
         
@@ -185,10 +185,8 @@
                 }
                 localStorage.setItem('favorites', JSON.stringify(favorites));
         
-                // Trigger an event to update the favorites list in favorites.html
                 window.dispatchEvent(new Event('storage'));
         
-                // Manually call displayFavorites to ensure immediate update
                 displayFavorites();
             });
         
