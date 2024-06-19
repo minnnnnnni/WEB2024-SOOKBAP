@@ -1,0 +1,16 @@
+/* 숙명 폰트 적용하기 */
+@font-face {
+    font-family: 'smfont';
+    src: url('fonts/SMUSnowflake-Regular.ttf') format('truetype');
+    font-weight: normal;
+}
+
+@font-face {
+    font-family: 'smfont';
+    src: url('fonts/SMUSnowflake-Bold.ttf') format('truetype');
+    font-weight: bold;
+}
+
+body {
+    font-family: 'smfont';
+}
