@@ -16,3 +16,10 @@ body {
     background: linear-gradient(to right, rgb(0,48,135),  rgb(0,114,206));
 }
 
+.footer {
+    padding-left: 100px;
+    padding-right: 100px;
+    margin-bottom: 30px;
+    text-align: center;
+    color:rgb(217,217,214);
+}

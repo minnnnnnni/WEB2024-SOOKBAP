@@ -10,14 +10,15 @@
             display: none;
             position: fixed;
             top: 40%;
-            left: 80%;
+            left: 83%;
             transform: translate(-50%, -50%);
             width: 300px;
             padding: 20px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            background-color: rgb(255,181,0);
+            background-color: rgb(255,125,1) ;
             border: 1px solid #ccc;
             z-index: 1000;
+            border-radius: 25px 0 25px 25px;
         }
         .popup-header {
             font-size: 20px;
@@ -36,25 +37,29 @@
         .hidden {
             display: none;
         }
+        .p-button {
+            border-radius: 5px;
+            background-color:  #f8f8f8 ;
+        }
     </style>
 </head>
 <body>
-    <div id="popup" class="popup">
+    <main id="popup" class="popup">
         <div class="popup-header">
             <h1>안녕하세요!</h1>
         </div>
         <div class="popup-content">
             <p>우리 학교 밥 먹으러 오는 사람들을 위해! 우리 학교에 와서 뭘 먹어야 할 지 모르겠는 사람들을 위해! 이건 제발 먹어봤으면 좋겠는 맛집 소개를 위해!</p>
             <p>다른 데서는 찾아볼 수 없는 진정한 우리 학교 앞 맛집들에 대해 소개하는 페이지입니다</p>
-            <p> [Category] 메뉴에서는 '식사류' 또는 '디저트류'로 분류된 맛집의 소개할 만한 메뉴를 구경할 수 있고,<br> 
-                [베스트픽] 메뉴에서 제작자의 최애 음식들을 확인할 수 있습니다. <br>
+            <p> [Category] 메뉴는 '식사류' 또는 '디저트류'로 분류되어 다양한 맛있는 메뉴들과 가게를 구경할 수 있고,<br> 
+                [베스트픽] 메뉴에서는 제작자의 최애 음식들을 확인할 수 있습니다. <br>
                 [MyPage] 메뉴에서는 자신의 로그인 내역과 자신이 좋아한 메뉴를 확인할 수 있는 페이지로 넘어갈 수 있습니다.</p>
         </div>
         <div class="popup-footer">
-            <button onclick="hideForToday()">오늘 하루 보지 않기</button>
-            <button onclick="closePopup()">닫기</button>
+            <button class="p-button" onclick="hideForToday()">오늘 하루 보지 않기</button>
+            <button class="p-button" onclick="closePopup()">닫기</button>
         </div>
-    </div>
+    </main>
     <script>
         function setCookie(name, value, days) {
             let expires = "";

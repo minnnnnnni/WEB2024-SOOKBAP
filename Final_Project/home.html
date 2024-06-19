@@ -42,7 +42,7 @@
 		.title-section p {
 		  font-size: 1.25rem;
 		  margin-bottom: 30px;
-		  color:rgb(151,153,155);
+		  color:rgb(217,217,214) ;
 		}
 		.title-section .btn-primary {
 		  background-color: #6f42c1;
@@ -102,7 +102,14 @@
 		.iw_inner {
 			padding-top: 10px;
 			padding-right: 5px;
-			padding-left: 5px;
+			padding-left: 10px;
+		}
+		.footer {
+			padding-left: 100px;
+			padding-right: 100px;
+			margin-bottom: 30px;
+			text-align: center;
+			color:rgb(217,217,214);
 		}
 	  </style>
 
@@ -142,7 +149,7 @@
   </nav>
 
   <!--메뉴바 아래 부분을 nonmenu라는 div태그로 구성하여 왼쪽에서부터 좀 떼기 -->
-  <div id="nonmenu">
+  <main id="nonmenu">
   <!-- 제목 -->
   <div class="title-section">
     <h1>숙대 밥 먹으러 오니</h1>
@@ -157,11 +164,11 @@
 	</div>
 	<div id="result-message"></div> <!--입력 결과에 따른 메시지 표현 공간. 근데 나중에도 안 되면 걍 빼고 alert로 띄우기-->
 	
-  </div>
+	</div>
 
   <!-- 팝업 나올 곳-->
-  <div id="popup-container"></div>
-</div>
+  <section id="popup-container"></section>
+</main>
 
   <!--지도 api -->
 <div class="map-container">
@@ -170,6 +177,14 @@
   <br>
   <br>
 </div>
+
+<footer>
+	<div class="footer">
+		<hr>
+		<p>숙밥 | Copyright 2024 숙명여자대학교 컴퓨터과학전공 안성민<br>
+		<span>Email. &nbsp;   </span>asmx6@sookmyung.ac.kr</p>
+	</div>
+</footer>
 
 
 <script>

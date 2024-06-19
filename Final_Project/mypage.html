@@ -36,7 +36,7 @@
         .content {
             direction: column;
             display:flex;
-            height: 75%;
+            height: 90%;
         }
         .left-content {
             background-color: #f8f8f8;
@@ -80,6 +80,7 @@
         }
         #introduce-text {
             font-size: 20px;
+            padding-top: 10px;
         }
         #introduce-image {
             width:110px;
@@ -160,20 +161,20 @@
 </nav>
 
 
-<div class="container">
+<main class="container">
     <h1>마이페이지</h1>
     <div class="content">
-    <div class="left-content">
+    <section class="left-content">
         <div class="introduce">
         <h4>만든사람 소개</h4>
-        <img src="cs_noonsong.png" id="introduce-image" alt="제작자소개 이미지">
-        <p id="introduce-text">ㄷㄴㄱㄷㅇㄷㄱ<br>ㄴㄷㄱㅇㄱㄷㄱ<br>ㄴㄷㄱ</p>
+        <img src="images/cs_noonsong.png" id="introduce-image" alt="제작자소개 이미지">
+        <p id="introduce-text">숙명여자대학교<br>컴퓨터과학전공<br>안성민</p>
         </div> <hr>
         <a href="bestpick.html" class="btn btn-primary btn-block" id="bestpick-btn">제작자의<br>베스트픽 맛집이<br> 궁금하다면!</a>
         <hr>
-        <a href="#" class="btn btn-primary btn-block mt-2" id="recommend-btn">또다른 맛집이 있다면<br>추천 부탁드려요!!</a>
-    </div>
-    <div class="right-content">
+        <a href="https://open.kakao.com/o/sLvQhPvg" class="btn btn-primary btn-block mt-2" id="recommend-btn">또다른 맛집이 있다면<br>추천 부탁드려요!!</a>
+    </section>
+    <section class="right-content">
         <h2 id="welcome-message">000님의 n번째 방문에 감사드립니다. 메시지</h2> <hr>
         <a href="favorites.html" class="btn btn-primary">내가 좋아한 메뉴들</a>
         <a href="welcome.html" class="btn btn-primary">방문 횟수 늘리기</a> <!--welcome.html과 연결되어 방문횟수 늘림-->
@@ -182,18 +183,28 @@
         <div class="today-menu">
             <div class="today-left">
                 <h4 class="today-text">식사류</h4>
-                <img src="cs_noonsong.png" id="menu-image" alt="식사류 이미지">
-                <h5 class="today-text">메뉴이름</h5>
+                <img src="images/japanese_miwaku.png" id="menu-image" alt="식사류 이미지">
+                <h5 class="today-text">새우튀김 냉우동</h5>
+                <p>미와쿠</p>
             </div>
             <div class="today-right">
                 <h4 class="today-text">디저트류</h4>
-                <img src="cs_noonsong.png" id="menu-image" alt="디저트류 이미지">
-                <h5 class="today-text">메뉴이름</h5>
+                <img src="images/beverage_lemon.jpeg" id="menu-image" alt="디저트류 이미지">
+                <h5 class="today-text">레몬 그라니따</h5>
+                <p>쥬케로</p>
             </div>
         </div>
-    </div>
+    </section>
 </div>
-</div>
+</main>
+
+<footer>
+	<div class="footer">
+		<hr>
+		<p>숙밥 | Copyright 2024 숙명여자대학교 컴퓨터과학전공 안성민<br>
+		<span>Email. &nbsp;   </span>asmx6@sookmyung.ac.kr</p>
+	</div>
+</footer>
 
 <script>
     function getCookie(name) {
